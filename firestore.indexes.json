@@ -1,0 +1,224 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "customers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "channelID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "customerID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        {
+          "fieldPath": "adminID",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "channelID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "customerID",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "isReaded",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isReply",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isSended",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "isUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "owner",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "channelId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "owner",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "channelID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "customerID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "customerID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "customerID",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "channelID",
+          "order": "DESCENDING"
+        },
+        {
+          "fieldPath": "isRead",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "replytokens",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "channelID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "customerID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "replytokens",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "customerID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "channelID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "replytokens",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "customerID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "channelID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "customers",
+      "fieldPath": "timestamp",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION"
+        },
+        {
+          "order": "DESCENDING",
+          "queryScope": "COLLECTION"
+        },
+        {
+          "arrayConfig": "CONTAINS",
+          "queryScope": "COLLECTION"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "fieldPath": "timestamp",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION"
+        },
+        {
+          "order": "DESCENDING",
+          "queryScope": "COLLECTION"
+        },
+        {
+          "arrayConfig": "CONTAINS",
+          "queryScope": "COLLECTION"
+        }
+      ]
+    }
+  ]
+}
