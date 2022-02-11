@@ -7,8 +7,15 @@ jobs:
   deploy_functions:
     runs-on: ubuntu-lastest
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Setup Firebase
+        run: |
+          wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+          apt update && apt install -y software-properties-common
+          add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+          apt update && apt install -y jq adoptopenjdk-8-hotspot-jre git && apt autoremove --purge -y && apt clean -y
+          npm i -g firebase-tools
       - uses: actions/checkout@v2
-      - name: Deploy functions
-        uses: w9jds/firebase-action@master
-        env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHATAPPTEST_EDD0D }}
