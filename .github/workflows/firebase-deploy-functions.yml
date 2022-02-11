@@ -7,6 +7,7 @@ jobs:
   deploy_functions:
     runs-on: ubuntu-lastest
     steps:
+      - uses: actions/checkout@v2
       - name: Deploy functions
         uses: w9jds/firebase-action@master
         env:
