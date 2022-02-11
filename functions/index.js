@@ -7,7 +7,7 @@ const api = functions
   .runWith({})
   .https.onRequest(async (req, res) => {
     try {
-      res.json({ hello: "love" });
+      res.json({ hello: "Sarawuth" });
     } catch (err) {
       res.json({ message: err.message });
     }

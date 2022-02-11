@@ -5,6 +5,7 @@ module.exports = {
     node: true,
   },
   extends: ["eslint:recommended", "google", "plugin:prettier/recommended"],
+  plugins: ["prettier"],
   parserOptions: {
     ecmaVersion: 10,
     sourceType: "module",
