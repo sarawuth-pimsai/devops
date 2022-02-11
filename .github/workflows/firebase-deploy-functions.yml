@@ -11,4 +11,4 @@ jobs:
       - name: Deploy functions
         uses: w9jds/firebase-action@master
         env:
-          GCP_SA_KEY: ${{ secrets.DEPLOY_FUNCS }}
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CHATAPPTEST_EDD0D }}
