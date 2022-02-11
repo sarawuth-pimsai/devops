@@ -7,8 +7,12 @@ jobs:
   deploy_functions:
     runs-on: ubuntu-latest
     steps:
-      - name: "Hello"
-        run: ls -l
+      - name: "Check out"
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: "Node Version"
+        run: node version
       # - name: Setup Node
       #   uses: actions/setup-node@v2
       #   with:
