@@ -7,12 +7,16 @@ jobs:
   deploy_functions:
     runs-on: ubuntu-latest
     steps:
-      - name: "Check out"
+      - name: "Setup NodeJS"
         uses: actions/setup-node@v2
         with:
           node-version: '16'
       - name: "Node Version"
         run: node --version
+      - name: Check out github
+        uses: actions/checkout@v2
+      - name: ls
+        run: ls -l
       # - name: Setup Node
       #   uses: actions/setup-node@v2
       #   with:
