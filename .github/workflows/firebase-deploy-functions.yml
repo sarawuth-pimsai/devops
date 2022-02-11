@@ -6,6 +6,7 @@ on:
 jobs:
   deploy_functions:
     runs-on: ubuntu-latest
+    env: 
     steps:
       - name: "Setup NodeJS"
         uses: actions/setup-node@v2
