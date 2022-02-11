@@ -1,9 +1,16 @@
 const functions = require("firebase-functions");
+const admin = require("firebase-admin");
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+admin.initializeApp();
+const api = functions
+  .region("asia-southeast1")
+  .runWith({})
+  .https.onRequest(async (req, res) => {
+    try {
+      res.json({ hello: "love" });
+    } catch (err) {
+      res.json({ message: err.message });
+    }
+  });
+
+module.exports = { api };

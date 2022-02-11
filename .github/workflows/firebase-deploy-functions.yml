@@ -1,0 +1,13 @@
+name: Firebase Deploy Functions
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy_functions:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Deploy functions
+        uses: w9jds/firebase-action@master
+        env:
+          GCP_SA_KEY: ${{ secrets.DEPLOY_FUNCS }}
