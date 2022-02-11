@@ -7,11 +7,11 @@ jobs:
   deploy_functions:
     runs-on: ubuntu-lastest
     steps:
+      - uses: actions/checkout@v2
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - uses: actions/checkout@v2
       - name: Setup Firebase
         run: |
           cd ./public
