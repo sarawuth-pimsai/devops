@@ -36,6 +36,8 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS: "gac_key.json"
       - name: Run Firebase
         run: firebase projects:list
+        env: 
+          GOOGLE_APPLICATION_CREDENTIALS: "gac_key.json"
       # - name: Setup Node
       #   uses: actions/setup-node@v2
       #   with:
