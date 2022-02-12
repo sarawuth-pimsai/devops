@@ -33,7 +33,7 @@ jobs:
       - name: Show GAC
         run: echo $GOOGLE_APPLICATION_CREDENTIALS
         env: 
-          GOOGLE_APPLICATION_CREDENTIALS: ${{gac_key.json}}
+          GOOGLE_APPLICATION_CREDENTIALS: "gac_key.json"
       # - name: Setup Node
       #   uses: actions/setup-node@v2
       #   with:
