@@ -39,7 +39,7 @@ jobs:
         run: firebase projects:list
       - name: Set ENV
         run: |
-          cat << EOF > .env
+          cat << EOF > ./functions/.env
           APP_URL="https://asia-east2-kslplus.cloudfunctions.net/api/v1"
           CONFIG=${{ secrets.CONFIG }}
           EOF
