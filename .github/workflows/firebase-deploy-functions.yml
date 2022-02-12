@@ -6,8 +6,8 @@ on:
 jobs:
   deploy_functions:
     runs-on: ubuntu-latest
-    env: 
-      GOOGLE_APPLICATION_CREDENTIALS: ${{gac_key.json}}
+    # env: 
+    #   GOOGLE_APPLICATION_CREDENTIALS: ${{gac_key.json}}
     steps:
       - name: "Setup NodeJS"
         uses: actions/setup-node@v2
