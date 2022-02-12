@@ -7,18 +7,18 @@ jobs:
   deploy_functions:
     runs-on: ubuntu-latest
     steps:
-      # - name: "Setup NodeJS"
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '16'
-      # - name: "Node Version"
-      #   run: node --version
-      # - name: Check out github
-      #   uses: actions/checkout@v2
-      # - name: Install Firebase
-      #   run: npm install -g firebase-tools
-      # - name: Firebase Version
-      #   run: firebase --version
+      - name: "Setup NodeJS"
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: "Node Version"
+        run: node --version
+      - name: Check out github
+        uses: actions/checkout@v2
+      - name: Install Firebase
+        run: npm install -g firebase-tools
+      - name: Firebase Version
+        run: firebase --version
       - name: Create JSON File
         uses: jsdaniell/create-json@1.1.2
         with:
@@ -34,6 +34,8 @@ jobs:
         run: echo $GOOGLE_APPLICATION_CREDENTIALS
         env: 
           GOOGLE_APPLICATION_CREDENTIALS: "gac_key.json"
+      - name: Run Firebase
+        run: firebase projects:list
       # - name: Setup Node
       #   uses: actions/setup-node@v2
       #   with:
