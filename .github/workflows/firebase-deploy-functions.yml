@@ -37,6 +37,12 @@ jobs:
         run: cat gac_key.json
       - name: Run Firebase
         run: firebase projects:list
+      - name: Set ENV
+        run: |
+          cat << EOF > .env
+          APP_URL="https://asia-east2-kslplus.cloudfunctions.net/api/v1"
+          CONFIG=${{ secrets.CONFIG }}
+          EOF
       - name: Deploy Api Functions
         run: firebase deploy --only functions:api
 
