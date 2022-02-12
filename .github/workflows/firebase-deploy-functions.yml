@@ -22,7 +22,7 @@ jobs:
       - name: Firebase Version
         run: firebase --version
       - name: Export Google Application Credentials
-        run: echo ${{secrets.DEPLOY_FUNCS}} >> gac_key.json
+        run: echo "${{toJSON(secrets.DEPLOY_FUNCS)}}" >> gac_key.json
       - name: List files
         run: ls -l
       # - name: Setup Node
