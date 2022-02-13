@@ -26,7 +26,7 @@ jobs:
       - name: Get Firebase Version
         run: echo ${{steps.firebase-tools.outputs.version}}
       - name: NPM list package
-        run: npm list -s --depth=0
+        run: echo "$(npm list)"
         working-directory: functions
       # - name: Install package
       #   run: npm ci
