@@ -25,6 +25,9 @@ jobs:
           echo "::set-output name=version::$(firebase --version)"
       - name: Get Firebase Version
         run: echo ${{steps.firebase-tools.outputs.version}}
+      - name: NPM list package
+        run: npm list -s --depth=0
+        working-directory: functions
       # - name: Install package
       #   run: npm ci
       #   working-directory: functions
