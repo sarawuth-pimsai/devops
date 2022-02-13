@@ -22,7 +22,7 @@ jobs:
       - name: Firebase Version
         id: firebase-tools
         run: |
-          echo "::set-output name=version::$(firebase --version)
+          echo "::set-output name=version::$(firebase --version)"
       - name: Get Firebase Version
         run: echo ${{steps.firebase-tools.outputs.version}}
       # - name: Install package
