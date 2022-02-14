@@ -23,7 +23,7 @@ jobs:
           EOF
         working-directory: functions
       - name: Install dependencies
-        run: npm ci && npm run test
+        run: npm ci
         working-directory: functions
     
   Deploy:
