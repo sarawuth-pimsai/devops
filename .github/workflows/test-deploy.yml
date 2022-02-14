@@ -42,8 +42,8 @@ jobs:
       - run: ls -l
       - run: echo $GOOGLE_APPLICATION_CREDENTIALS
       - run: echo $(cat $GOOGLE_APPLICATION_CREDENTIALS)
-      # - name: Install Firebase
-      #   run: npm install -g firebase-tools
+      - name: Install Firebase
+        run: npm install -g firebase-tools
       - name: Checkout Github
         uses: actions/checkout@v2
       - name: Setup env file
