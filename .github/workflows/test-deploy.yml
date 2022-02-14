@@ -7,8 +7,6 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
-    env:
-      GOOGLE_APPLICATION_CREDENTIALS: "gac_key.json"
     steps:
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -42,8 +40,9 @@ jobs:
           name: "gac_key.json"
           json: ${{secrets.GAC_KEY}}
       - run: ls -l
-      - name: Install Firebase
-        run: npm install -g firebase-tools
+      - run: echo $GOOGLE_APPLICATION_CREDENTIALS
+      # - name: Install Firebase
+      #   run: npm install -g firebase-tools
       - name: Checkout Github
         uses: actions/checkout@v2
       - name: Setup env file
