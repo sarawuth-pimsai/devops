@@ -19,4 +19,4 @@ jobs:
       - name: User Reviews No. ${{github.event.pull_request.number}}
         run: echo "${{toJSON(github.event.review.user)}}"
       - name: Status
-        run: ${{github.event.review.state}}
+        run: echo "${{github.event.review.state}}"
