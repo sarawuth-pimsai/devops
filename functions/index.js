@@ -8,7 +8,7 @@ const api = functions
   .https.onRequest(async (req, res) => {
     try {
       res.json({
-        hello: "Sarawuth Pimsai",
+        hello: "Sarawuth",
         // env: process.env,
       });
     } catch (err) {
