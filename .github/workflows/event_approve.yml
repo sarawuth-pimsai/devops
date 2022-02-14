@@ -10,7 +10,8 @@ jobs:
     # if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        echo "${{github.event.pull_request.base.ref}}"
-        echo "${{github.event.review.state}}"
-        echo "${{github.event.pull_request.number}}"
+      - name: Approve
+        run: |
+          echo "${{github.event.pull_request.base.ref}}"
+          echo "${{github.event.review.state}}"
+          echo "${{github.event.pull_request.number}}"
