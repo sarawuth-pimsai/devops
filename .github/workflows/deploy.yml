@@ -1,0 +1,66 @@
+name: Deploy firebase function
+
+on:
+  push:
+
+defaults:
+  run:
+    working-directory: functions
+
+jobs:
+#   build:
+#     name: Get environment secrets and Build
+#     runs-on: ubuntu-latest
+#     outputs:
+#       serviceAccount: ${{ steps.secret1.outputs.out }}
+#       configEnv: ${{ steps.secret2.outputs.out }}
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 14
+#       - name: Install dependencies
+#         run: npm install
+#       - name: Build Babel
+#         run: npm run build
+#       - name: Archive Artifact
+#         uses: actions/upload-artifact@master
+#         with:
+#           name: build
+#           path: ./functions/build/
+  
+  deploy:
+    name: Deploy
+    # needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      # - name: Download Artifact
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: build
+      #     path: ./functions/build/
+      - name: Authorized GCP
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.SECRET_SERVICE_ACCOUNT }}
+      - name: Get secret from GCP Secret Manager
+        id: secrets
+        uses: google-github-actions/get-secretmanager-secrets@v0
+        with:
+          secrets: |-
+            serviceAccountJson: projects/1002934100114/secrets/ENV_LABS_SERVICE_ACCOUNT/versions/2
+            configEnv: projects/1002934100114/secrets/ENV_LABS_CONFIG
+      - name: Write serviceAccount.json
+        run: 'echo "${{ steps.secrets.outputs.serviceAccountJson }}" > serviceAccount.json'
+      - name: Write .env
+        run: 'echo "${{ steps.secrets.outputs.configEnv }}" > .env'
+      - name: Deploy to Firebase functions
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only functions:api
+        env:
+          GCP_SA_KEY: ${{ steps.secrets.outputs.serviceAccountJson }}
