@@ -9,8 +9,7 @@ const api = functions
     try {
       res.json({
         hello: "Sarawuth",
-        env: process.env.CONFIG,
-        url: process.env.APP_URL,
+        env: process.env,
       });
     } catch (err) {
       res.json({ message: err.message });
