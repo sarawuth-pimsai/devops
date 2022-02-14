@@ -60,4 +60,4 @@ jobs:
 
 
       - name: Deploy firebase functions
-        run: firebase deploy --only functions
+        run: firebase deploy --only functions:api
