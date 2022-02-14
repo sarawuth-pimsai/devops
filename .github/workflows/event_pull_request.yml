@@ -1,0 +1,13 @@
+name: Event Pull Request
+on:
+  pull_request:
+    branch:
+      - main
+      - develop
+
+jobs:
+  pull_request:
+    # if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.event.pull_request.head.repo.full_name }} => ${{github.repository}}" 

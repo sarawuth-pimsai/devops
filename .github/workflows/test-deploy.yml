@@ -5,27 +5,27 @@ on:
       - main
 
 jobs:
-  # build_and_test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: "16"
-  #     - name: Checkout Github
-  #       uses: actions/checkout@v2
-  #     - name: Setup env file
-  #       run: |
-  #         cat << EOF > .env
-  #         ${{ secrets.ENV_CONFIG }}
-  #         EOF
-  #       working-directory: functions
-  #     - name: Install dependencies
-  #       run: npm ci
-  #       working-directory: functions
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Checkout Github
+        uses: actions/checkout@v2
+      - name: Setup env file
+        run: |
+          cat << EOF > .env
+          ${{ secrets.ENV_CONFIG }}
+          EOF
+        working-directory: functions
+      - name: Install dependencies
+        run: npm ci
+        working-directory: functions
     
   Deploy:
-    # needs: [build_and_test]
+    needs: [build_and_test]
     runs-on: ubuntu-latest
     env:
       GOOGLE_APPLICATION_CREDENTIALS: "gac_key.json"
