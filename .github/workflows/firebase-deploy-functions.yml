@@ -35,7 +35,7 @@ jobs:
         uses: jsdaniell/create-json@1.1.2
         with:
           name: "gac_key.json"
-          json: ${{secrets.DEPLOY_FUNCS}}
+          json: ${{secrets.GAC_KEY}}
       - name: List files
         run: ls -l
       - name: Check File
