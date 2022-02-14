@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup env file
         run: |
-          cat << EOF > ./functions/.env
+          cat << EOF > .env
           ${{ secrets.ENV_CONFIG }}
           EOF
         working-directory: functions
