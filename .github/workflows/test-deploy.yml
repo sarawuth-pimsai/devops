@@ -41,6 +41,7 @@ jobs:
           json: ${{secrets.GAC_KEY}}
       - run: ls -l
       - run: echo $GOOGLE_APPLICATION_CREDENTIALS
+      - run: echo $(cat gac_key.json)
       # - name: Install Firebase
       #   run: npm install -g firebase-tools
       - name: Checkout Github
