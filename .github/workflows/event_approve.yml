@@ -12,9 +12,11 @@ jobs:
     # ${{github.event.review.state}} => approved
     runs-on: ubuntu-latest
     steps:
-      - name: Approve
-        run: |
-          echo "${{github.event.pull_request.base.ref}}"
-          echo "${{github.event.review.state}}"
-          echo "${{toJSON(github.event.pull_request.number)}}"
-          echo "${{toJSON(github.event.review.user)}}"
+      - name: Branch ${{github.event.pull_request.base.ref}}
+        run: echo "${{github.event.pull_request.base.ref}}"
+      - name: User Pull Request No. ${{github.event.pull_request.number}}
+        run: echo "${{toJSON(github.event.pull_request.user)}}"
+      - name: User Reviews No. ${{github.event.pull_request.number}}
+        run: echo "${{toJSON(github.event.review.user)}}"
+      - name: Status
+        run: ${{github.event.review.state}}
