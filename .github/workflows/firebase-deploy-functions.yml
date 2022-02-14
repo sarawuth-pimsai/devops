@@ -2,7 +2,7 @@ name: Firebase Deploy Functions
 on:
   push:
     branches:
-      - mains
+      - main
 jobs:
   deploy_functions:
     runs-on: ubuntu-latest
@@ -28,26 +28,26 @@ jobs:
       - name: NPM list package
         run: echo "$(npm list)"
         working-directory: functions
-      # - name: Install package
-      #   run: npm ci
-      #   working-directory: functions
-      # - name: Create JSON File
-      #   uses: jsdaniell/create-json@1.1.2
-      #   with:
-      #     name: "gac_key.json"
-      #     json: ${{secrets.DEPLOY_FUNCS}}
-      # - name: List files
-      #   run: ls -l
-      # - name: Check File
-      #   run: cat gac_key.json
-      # - name: Run Firebase
-      #   run: firebase projects:list
-      # - name: Set ENV
-      #   run: |
-      #     cat << EOF > ./functions/.env
-      #     APP_URL="https://asia-east2-kslplus.cloudfunctions.net/api/v1"
-      #     ${{ secrets.CONFIG }}
-      #     EOF
+      - name: Install package
+        run: npm ci
+        working-directory: functions
+      - name: Create JSON File
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: "gac_key.json"
+          json: ${{secrets.DEPLOY_FUNCS}}
+      - name: List files
+        run: ls -l
+      - name: Check File
+        run: cat gac_key.json
+      - name: Run Firebase
+        run: firebase projects:list
+      - name: Set ENV
+        run: |
+          cat << EOF > ./functions/.env
+          APP_URL="https://asia-east2-kslplus.cloudfunctions.net/api/v1"
+          ${{ secrets.CONFIG }}
+          EOF
       # - name: Deploy Api Functions
       #   run: firebase deploy --only functions:api
 
