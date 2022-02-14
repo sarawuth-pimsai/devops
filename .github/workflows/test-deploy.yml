@@ -28,7 +28,7 @@ jobs:
     # needs: [build_and_test]
     runs-on: ubuntu-latest
     env:
-      GOOGLE_APPLICATION_CREDENTIALS: "./gac_key.json"
+      GOOGLE_APPLICATION_CREDENTIALS: "gac_key.json"
     steps:
       - name: Setup Node
         uses: actions/setup-node@v2
@@ -37,7 +37,7 @@ jobs:
       - name: Setup Env
         uses: jsdaniell/create-json@1.1.2
         with:
-          name: "gac_key.json"
+          name: ${{env.GOOGLE_APPLICATION_CREDENTIALS}}
           json: ${{secrets.GAC_KEY}}
       - run: ls -l
       - run: echo $GOOGLE_APPLICATION_CREDENTIALS
@@ -56,4 +56,4 @@ jobs:
         run: npm ci
         working-directory: functions
       - name: Deploy firebase functions
-        run: firebase deploy --only functions:api
+        run: firebase projects:list
