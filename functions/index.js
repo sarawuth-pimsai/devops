@@ -9,7 +9,7 @@ const api = functions
     try {
       res.json({
         hello: "Sarawuth Pimsai",
-        env: process.env,
+        // env: process.env,
       });
     } catch (err) {
       res.json({ message: err.message });
