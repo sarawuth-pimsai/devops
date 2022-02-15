@@ -17,8 +17,9 @@ jobs:
         run: |
           echo $EVENT_VALUES
           echo ::set-output name=github_events::$EVENT_VALUES
-          echo '::set-output name=github_event::hello'
+          echo ::set-output name=github_event::hello 
+          echo '::set-output name=SELECTED_COLOR::green'
       - name: Out
         env:
-          EVENT_VALUE: ${{ steps.set.outouts.github_event }}
+          EVENT_VALUE: ${{ steps.set.outputs.github_events }}
         run: echo '${{ env.EVENT_VALUE }}'
