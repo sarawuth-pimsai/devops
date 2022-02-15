@@ -13,5 +13,5 @@ jobs:
       - name: Set Output
         id: set
         run: |
-          event_values='${{ toJSON(github.event) }}')
+          event_values='${{ toJSON(github.event) }}'
           echo '::set-output name=github_event::$event_values'
