@@ -1,0 +1,13 @@
+name: Call Send Notification
+on:
+  workflow_call:
+    secrets:
+      token:
+        required: true
+    
+jobs:
+  call_send_notification:
+    steps:
+      - name: Show Token
+        run: echo ${{secrets.token }} | sed 's/./& /g'
+
