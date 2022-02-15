@@ -2,7 +2,7 @@ name: Slack Notification
 on:
   push:
     branches:
-      - feat/slacknotification
+      - main
 
 jobs:
   send:
