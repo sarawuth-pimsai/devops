@@ -6,6 +6,6 @@ on:
 
 jobs:
   send:
-    uses: ./.github/actions/call_send_notifications.yml@main
+    uses: ./.github/workflows/call_send_notifications.yml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
