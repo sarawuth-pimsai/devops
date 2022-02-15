@@ -11,13 +11,17 @@ jobs:
     # if: ${{ github.event.pull_request.merged }}
     runs-on: ubuntu-latest
     steps:
-      - name: Merged Status
-        run: echo ${{ github.event.pull_request.merged }}
-      - name: From Branch ${{github.event.pull_request.base.ref}}
-        run: echo "${{github.event.pull_request.base.ref}}"
-      - name: To Branch ${{github.event.pull_request.head.ref}}
-        run: echo "${{github.event.pull_request.head.ref}}"
-      - name: User Pull Request No. ${{github.event.pull_request.number}}
-        run: echo "${{toJSON(github.event.pull_request.user)}}"
-      - name: Status
-        run: echo "${{github.event.pull_request.state}}"
+      # - name: Merged Status
+      #   run: echo ${{ github.event.pull_request.merged }}
+      # - name: From Branch ${{github.event.pull_request.base.ref}}
+      #   run: echo "${{github.event.pull_request.base.ref}}"
+      # - name: To Branch ${{github.event.pull_request.head.ref}}
+      #   run: echo "${{github.event.pull_request.head.ref}}"
+      # - name: User Pull Request No. ${{github.event.pull_request.number}}
+      #   run: echo "${{toJSON(github.event.pull_request.user)}}"
+      # - name: Status
+      #   run: echo "${{github.event.pull_request.state}}"
+      - name: Github Event
+        id: set
+        run: |
+          echo '::set-output name=github_event::${{toJSON(github.event)}}'
