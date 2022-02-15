@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Info Branch
-        run: echo ${{ toJSON(github.event.push) }}
+        run: echo ${{ toJSON(github.event) }}
