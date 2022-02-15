@@ -20,5 +20,7 @@ jobs:
       #   run: echo "${{toJSON(github.event.review.user)}}"
       # - name: Status
       #   run: echo "${{github.event.review.state}}"
-      name: Info Github Event
-        - run: echo "${{ github.event }}"
+      - name: Github Event
+        id: set
+        run: |
+          echo '::set-output name=github_event::${{toJSON(github.event)}}'

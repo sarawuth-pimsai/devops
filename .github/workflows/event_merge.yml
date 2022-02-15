@@ -21,5 +21,7 @@ jobs:
       #   run: echo "${{toJSON(github.event.pull_request.user)}}"
       # - name: Status
       #   run: echo "${{github.event.pull_request.state}}"
-      name: Info
-        run: echo ${{ toJSON(github.event) }}
+      - name: Github Event
+        id: set
+        run: |
+          echo '::set-output name=github_event::${{toJSON(github.event)}}'

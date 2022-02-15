@@ -10,5 +10,9 @@ jobs:
     # if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.pull_request.head.repo.full_name }} => ${{github.repository}}" 
+      # - run: echo "${{ github.event.pull_request.head.repo.full_name }} => ${{github.repository}}" 
+      - name: Github Event
+        id: set
+        run: |
+          echo '::set-output name=github_event::${{toJSON(github.event)}}'
      
