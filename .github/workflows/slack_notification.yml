@@ -8,9 +8,7 @@ jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      # - name: Commits
-      #   run: echo ${{ toJSON(github.event.commits)}}
-      - name: Set Output
-        id: set
-        run: |
-          echo '::set-output name=github_event::${{toJSON(github.event)}}'
+      - name: Call Send Notification
+        uses: ./.github/actions/call_send_notification.yml@feat/slacknotification
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
