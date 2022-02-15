@@ -12,8 +12,10 @@ jobs:
       #   run: echo ${{ toJSON(github.event.commits)}}
       - name: Set Output
         id: set
+        env:
+          EVENT_VALUES='${{ toJSON(github.event) }}'
         run: |
-          event_values='${{ toJSON(github.event) }}'
-          echo '::set-output name=github_event::$event_values'
+          echo $EVENT_VALUES
+          echo '::set-output name=github_event::$EVENT_VALUES'
       - name: Out
-        run: echo '${{ fromJSON(steps.set.outputs.github_event) }}'
+        run: echo '${{ steps.set.outputs.github_event }}'
