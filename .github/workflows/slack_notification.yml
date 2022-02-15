@@ -8,7 +8,7 @@ jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/call_send_notification.yml
+      - uses: sarawuth-pimsai/devops/.github/workflows/call_send_notification.yml
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Call Send Notification
