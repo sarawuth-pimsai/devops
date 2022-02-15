@@ -12,10 +12,8 @@ jobs:
       #   run: echo ${{ toJSON(github.event.commits)}}
       - name: Set Output
         id: set
-        outputs:
-          event_var: ${{ steps.set.outputs.event_var}}
         run: |
-          echo ::set-output name=event_var::$github.event
+          echo '::set-output name=event_var::${{toJSON(github.event)}}'
       - name: Info Branch
         run: |
           echo $event_var
