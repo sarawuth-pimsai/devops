@@ -8,7 +8,7 @@ jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - name: Commits
-        run: echo ${{ fromJSON(github.event.commits)}}
+      # - name: Commits
+      #   run: echo ${{ toJSON(github.event.commits)}}
       - name: Info Branch
-        run: echo "${{ fromJSON(github.event) }}"
+        run: ${{ toJSON(github.event) }}
