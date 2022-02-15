@@ -14,11 +14,7 @@ jobs:
         id: set
         # env : { CONTENT : "${{ toJson(github) }}" }
         env: { EVENT_VALUES : "${{ toJSON(github.event) }}" }
-        run: |
-          echo $EVENT_VALUES
-          echo ::set-output name=github_events::$EVENT_VALUES
-          echo ::set-output name=github_event::hello 
-          echo '::set-output name=SELECTED_COLOR::green'
+        run: echo ::set-output name=github_events::$EVENT_VALUES
       - name: Out
         env:
           EVENT_VALUE: ${{ steps.set.outputs.github_events }}
