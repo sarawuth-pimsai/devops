@@ -13,7 +13,7 @@ jobs:
       - name: Set Output
         id: set
         run: |
-          echo ::set-output name=event_var::toJSON(github.event)
+          echo ::set-output name=event_var::${{toJSON(github.event)}}
       - name: Info Branch
         run: |
           echo $event_var
