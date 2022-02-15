@@ -12,7 +12,7 @@ jobs:
       #   run: echo ${{ toJSON(github.event.commits)}}
       - name: Set Output
         id: set
-        output:
+        outputs:
           event_var: ${{ steps.set.outputs.event_var}}
         run: |
           echo ::set-output name=event_var::$github.event
@@ -20,4 +20,4 @@ jobs:
         run: |
           echo $event_var
         env:
-          event_var: ${{ steps.set.output.event_var }}
+          event_var: ${{ steps.set.outputs.event_var }}
