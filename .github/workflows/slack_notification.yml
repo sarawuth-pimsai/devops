@@ -11,4 +11,4 @@ jobs:
       - name: Commits
         run: echo ${{ toJSON(github.event.commits)}}
       - name: Info Branch
-        run: echo ${{ toJSON(github.event) }}
+        run: echo "${{ toJSON(github.event) }}"
