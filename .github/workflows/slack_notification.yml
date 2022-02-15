@@ -16,4 +16,4 @@ jobs:
           echo '::set-output name=event_var::${{toJSON(github.event)}}'
       - name: Info Branch
         run: |
-          echo ${{ steps.set.event_var }}
+          echo ${{ steps.set.outputs.event_var }}
