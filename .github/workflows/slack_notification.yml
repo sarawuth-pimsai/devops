@@ -1,0 +1,12 @@
+name: Slack Notification
+on:
+  push:
+    branches:
+      - feat/slacknotification
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Info Branch
+        run: echo ${{ toJSON(github.event.push) }}
