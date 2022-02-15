@@ -16,4 +16,4 @@ jobs:
           echo '::set-output name=VALUES::${{github.event}}'
       - name: Info Branch
         run: |
-          echo "${{ steps.set.outputs.VALUES }}"
+          echo "${{ fromJSON(steps.set.outputs.VALUES) }}"
