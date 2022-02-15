@@ -16,6 +16,8 @@ jobs:
         env: { EVENT_VALUES : "${{ toJSON(github.event) }}" }
         run: |
           echo $EVENT_VALUES
-          echo '::set-output name=github_event::$(EVENT_VALUES | jq .)'
+          echo ::set-output name=github_event::$EVENT_VALUES
       - name: Out
-        run: echo '${{ steps.set.outputs.github_event }}'
+        env:
+          get_value: steps.set.outouts.github_event
+        run: echo '${{ env.get_value }}'
