@@ -9,6 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call Send Notification
-        uses: ./.github/actions/call_send_notification
+        uses: ./.github/actions/call_send_notification.yml
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
