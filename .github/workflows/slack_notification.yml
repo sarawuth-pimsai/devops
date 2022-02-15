@@ -19,5 +19,5 @@ jobs:
           echo ::set-output name=github_event::$EVENT_VALUES
       - name: Out
         env:
-          get_value: steps.set.outouts.github_event
+          get_value: ${{ steps.set.outouts.github_event }}
         run: echo '${{ env.get_value }}'
