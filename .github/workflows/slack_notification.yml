@@ -13,8 +13,7 @@ jobs:
       - name: Set Output
         id: set
         # env : { CONTENT : "${{ toJson(github) }}" }
-        env:
-          {EVENT_VALUES:'${{ toJSON(github.event) }}'}
+        env : { EVENT_VALUES : "${{ toJson(github) }}" }
         run: |
           echo $EVENT_VALUES
           echo '::set-output name=github_event::$EVENT_VALUES'
