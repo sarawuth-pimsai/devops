@@ -8,14 +8,7 @@ jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      # - name: Commits
-      #   run: echo ${{ toJSON(github.event.commits)}}
-      - name: Set Output
-        id: set
-        # env : { CONTENT : "${{ toJson(github) }}" }
-        env: { EVENT_VALUES : "${{ toJSON(github.event) }}" }
-        run: echo ::set-output name=github_events::$EVENT_VALUES
-      - name: Out
-        env:
-          EVENT_VALUE: ${{ steps.set.outputs.github_events }}
-        run: echo '${{ env.EVENT_VALUE }}'
+      - name: Call Send Notification
+        uses: call_send_notification.yml
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
