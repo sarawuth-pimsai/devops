@@ -6,6 +6,6 @@ on:
 
 jobs:
   send:
-    uses: sarawuth-pimsai/devops/.github/workflows/call_send_notification.yml@main
+    uses: ./.github/workflows/call_send_notification.yml@main
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
