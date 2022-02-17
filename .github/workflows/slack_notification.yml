@@ -6,6 +6,7 @@ on:
 
 jobs:
   send:
+    - run: echo Sarawuth
     uses: ./.github/workflows/actions/call_send_notifications.yml
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
