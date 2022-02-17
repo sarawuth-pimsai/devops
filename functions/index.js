@@ -10,6 +10,7 @@ const api = functions
       res.json({
         hello: "Hello Sarawuth Pimsai",
         env: config,
+        owner: "Sarawuth",
         ur: "intent://path/#Intent;scheme=kslplus;package=com.kslplus.kongsalakplus;",
       });
     } catch (err) {
