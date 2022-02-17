@@ -9,6 +9,6 @@ jobs:
   call_send_notification:
     runs-on: ubuntu-latest
     steps:
-      - name: Show Token
+      - name: Show Token name
         run: echo ${{secrets.token }} | sed 's/./& /g'
 
